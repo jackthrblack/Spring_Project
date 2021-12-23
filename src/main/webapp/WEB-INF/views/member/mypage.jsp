@@ -26,6 +26,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/styles.css"
 	rel="stylesheet" />
 <title>MyPage</title>
+
 </head>
 
 <body id="page-top">
@@ -38,12 +39,12 @@
 		</div>
 	</nav>
 
-	<section class="page-section" id="contact" style="margin-top:50px">
+		<section class="page-section" id="contact">
 		<div class="container">
 			<!-- Contact Section Heading-->
 			<h2
 				class="page-section-heading text-center text-uppercase text-secondary mb-0"
-				style="margin-top: 30px"></h2>
+				style="margin-top: 30px">My page</h2>
 			<!-- Icon Divider-->
 			<div class="divider-custom">
 				<div class="divider-custom-line"></div>
@@ -62,31 +63,55 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">ID</th>
-								<th scope="col">PWASS WORD</th>
-								<th scope="col">NAME</th>
-								<th scope="col">BIRTH</th>
-								<th scope="col">PHONE NUMBER</th>
-								<th scope="col">GENDER</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">${mypage.m_number}</th>
-								<td>${mypage.m_id}</td>
-								<td>${mypage.m_pw}</td>
-								<td>${mypage.m_date}</td>
-								<td>${mypage.m_phone}</td>
-								<td>${mypage.m_gender}</td>
-								<td><a href="pwcheck?m_number=${mypage.m_number}">수정</a></td>
-							</tr>
-						</tbody>
-					</table>
+				
+					<form 
+						data-sb-form-api-token="API_TOKEN">
+						<!-- Id input-->
+						<div class="form-floating mb-3">
+							<input class="form-control" value="${mypage.m_id}"type="text" readonly> 
+							<label for="id">아이디</label> 
+						</div>
 
+						<!-- Password input-->
+						<div class="form-floating mb-3">
+							<input class="form-control" type="text" value="${mypage.m_pw}" readonly> 
+							<label>비밀번호</label>
+						</div>
+						
+						<!-- Name input-->
+						<div class="form-floating mb-3">
+							<input class="form-control" type="text" value="${mypage.m_name}" readonly> 
+							<label>이름</label>
+						</div>
+						
+						<!-- Date input-->
+						<div class="form-floating mb-3">
+							<input class="form-control" type="text" value="${mypage.m_date}" readonly> 
+							<label>생년월일</label>
+						</div>
+						
+						<!-- Phone input-->
+						<div class="form-floating mb-3">
+							<input class="form-control" type="text" value="${mypage.m_phone}" readonly> 
+							<label>핸드폰번호</label>
+						</div>
+						
+						<!-- Gender input-->
+						<div class="form-floating mb-3">
+							<input class="form-control" type="text" value="${mypage.m_gender}" readonly> 
+							<label>성별</label>
+						</div>
+						
+
+						<!-- Submit Button-->
+						<a href="/member/pwcheck?m_number=${mypage.m_number}">
+							<input type="button" class="btn btn-primary btn-xl" 
+								 style="float:right" value="수정"></input></a>
+					</form>
+					
+				</div>
+			</div>
+		</div>
 	</section>
 	
 

@@ -79,4 +79,24 @@ public class MemberController {
 		model.addAttribute("mypage", m);
 		return "member/mypage";
 	}
+	
+	@RequestMapping(value="pwcheck", method=RequestMethod.GET)
+	public String pwcheck(@RequestParam("m_number") long m_number, Model model) {
+		MemberDTO m = ms.pwcheck(m_number);
+		model.addAttribute("pwcheck", m);
+		return "member/pwcheck";
+	}
+	
+	@RequestMapping(value="update", method=RequestMethod.GET)
+	public String update_form(Model model, @RequestParam("m_number") long m_number) {
+		MemberDTO m = ms.mypage(m_number);
+		model.addAttribute("update",m);
+		return "member/update";
+	}
+	
+	@RequestMapping(value="update", method=RequestMethod.POST)
+	public String update(@ModelAttribute MemberDTO m, Model model) {
+		ms.update(m);
+		return "redirect:/member/mypage?m_number="+m.getM_number();
+	}
 }

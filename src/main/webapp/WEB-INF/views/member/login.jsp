@@ -31,7 +31,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-
+				<a class="navbar-brand" href="/">병원이름</a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
 
                 </div>
@@ -43,7 +43,7 @@
 			<!-- Contact Section Heading-->
 			<h2
 				class="page-section-heading text-center text-uppercase text-secondary mb-0"
-				style="margin-top: 30px">회원가입</h2>
+				style="margin-top: 30px">Sign In</h2>
 			<!-- Icon Divider-->
 			<div class="divider-custom">
 				<div class="divider-custom-line"></div>
@@ -70,7 +70,7 @@
 							<label for="id">아이디</label> 
 						</div>
 
-						<!-- Password input-->S
+						<!-- Password input-->
 						<div class="form-floating mb-3">
 							<input class="form-control" name="m_pw" id="m_pw" type="password"> 
 							<label for="pw">비밀번호</label>
@@ -78,9 +78,10 @@
 
 						<!-- Submit Button-->
 
+					<div class="text-middle">
 						<button class="btn btn-primary btn-xl" id="submitButton"
-							type="submit">로그인</button>
-
+							type="submit">Sign In</button>
+					</div>
 					</form>
 				</div>
 			</div>

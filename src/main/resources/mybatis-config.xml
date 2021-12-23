@@ -4,5 +4,9 @@
 <configuration>
 	<typeAliases> 
 		<typeAlias  type="com.project.kbj.dto.MemberDTO" alias="mdto"/>
+		<typeAlias  type="com.project.kbj.dto.DoctorDTO" alias="ddto"/>
+		<typeAlias  type="com.project.kbj.dto.DiseaseDTO" alias="idto"/>
+		<typeAlias  type="com.project.kbj.dto.ReservationDTO" alias="rdto"/>
+		<typeAlias  type="com.project.kbj.dto.CommentDTO" alias="cdto"/>
 	</typeAliases>
 </configuration>

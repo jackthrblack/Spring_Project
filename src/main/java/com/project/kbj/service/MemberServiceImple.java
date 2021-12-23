@@ -41,6 +41,7 @@ public class MemberServiceImple implements MemberService {
 		if(loginMember!=null) {
 			session.setAttribute("loginId", m.getM_id());			
 			session.setAttribute("loginNumber", loginMember.getM_number());
+			session.setAttribute("loginPw", m.getM_pw());
 			return "index";
 		}else {
 			return "/member/login";
@@ -88,7 +89,19 @@ public class MemberServiceImple implements MemberService {
 	@Override
 	public MemberDTO mypage(long m_number) {
 		MemberDTO m = mr.mypage(m_number);
+		System.out.println("S_F:"+m);
 		return m;
 	}
+	@Override
+	public void update(MemberDTO m) {
+		mr.update(m);
+		
+	}
+	@Override
+	public MemberDTO pwcheck(long m_number) {
+		MemberDTO m = mr.pwcheck(m_number);
+		return m;
+	}
+	
 
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Reservation">
+	<insert id="insert" parameterType="rdto">
+		insert into reservation_table(d_number, d_id, d_pw, d_name, d_date, d_email, d_gender)
+		values(#{d_number},#{d_id},#{d_pw},#{d_name},#{d_date},#{d_email},#{d_gender})
+	</insert>
+</mapper>

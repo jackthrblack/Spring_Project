@@ -18,6 +18,7 @@
         <link href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -27,24 +28,35 @@
         
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">의료진 소개</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">찾아오는 길</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">예약하기</a></li>
                         <c:choose>
                         
                         	<c:when test="${sessionScope.loginId eq 'admin'}">
                         		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/paging?page=${page}">회원목록</a></li>
-                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/logout">로그아웃</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/doctor/paging2?page2=${page}">의사목록</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/doctor/insert">의사등록</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/disease/insert">질병등록</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/logout">Sign Out</a></li>
                         	</c:when>
                         	
                         	<c:when test="${sessionScope.loginId != null}">
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">의료진 소개</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">찾아오는 길</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">예약하기</a></li>
                         		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/mypage?m_number=${loginNumber}">MyPage</a></li>
                         		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/logout">로그아웃</a></li>
                         	</c:when>
                         	
+                        		<c:when test="${sessionScope.DloginId != null}">
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/mypage?m_number=${loginNumber}">MyPage</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/doctor/logout">로그아웃</a></li>
+                        	</c:when>
+                        	
                         	<c:otherwise>
-                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/insert">회원가입</a></li>
-                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/login">로그인</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">의료진 소개</a></li>
+                      			<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">찾아오는 길</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/insert">Join</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/member/login">Sign In</a></li>
+                        		<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/doctor/login">Doctor In</a></li>
                         	</c:otherwise>
                     	</c:choose>
                     </ul>
@@ -83,7 +95,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/cabin.png" alt="..." />
+                            <img style="height:300px; width:100%" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/kbj.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -92,7 +104,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/cake.png" alt="..." />
+                            <img style="height:300px; width:100%" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/타조타조.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -104,35 +116,8 @@
                             <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/circus.png" alt="..." />
                         </div>
                     </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/game.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/safe.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/submarine.png" alt="..." />
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </div> 
         </section>
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
@@ -147,7 +132,7 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto" ><p class="lead"></p>
+                    <div class="col-lg-4 ms-auto"><p class="lead"></p>
                         <div id="map" style="width:400px;height:400px;"></div>
                         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a1f482822e34aa18a339c0eeb9a3b8d"></script>
                             <script>
@@ -170,14 +155,7 @@
                     </div>
                     <div class="col-lg-4 me-auto"><p class="lead">주 소 : </p></div>
                 </div>
-                <!-- About Section Button-->
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                        <i class="fas fa-download me-2"></i>
-                        Free Download!
-                    </a>
-                </div>
-            </div>
+                
         </section>
         <!-- Contact Section-->
         <section class="page-section" id="contact">
@@ -299,23 +277,19 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
-                                    <!-- Icon Divider-->
+                                    <!-- Portfolio Modal - Image-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">김백준</h2>
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/cabin.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" align="left" style="width:40%;height:40%;" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/kbj.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
+										<a href="/doctor/review?d_number=1" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">후기보러 가기</a>
                                     </button>
-                                </div>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -331,22 +305,16 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                    <!-- Icon Divider-->
+                                    <!-- Portfolio Modal - Image-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">김백준</h2>
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/cake.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" align="left" style="width:40%;height:40%;" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/타조타조.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <p class="mb-4">adsfadsfadsfdsfadsfadfadsf</p>
                                 </div>
                             </div>
                         </div>
@@ -492,4 +460,5 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+       
 </html>

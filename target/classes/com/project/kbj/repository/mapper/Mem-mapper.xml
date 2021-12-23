@@ -36,4 +36,12 @@
  	<select id="mypage" parameterType="long" resultType="mdto">
  		select * from member_table where m_number=#{m_number}
  	</select>
+ 	
+ 	<select id="pwcheck" parameterType="long" resultType="mdto">
+ 		select * from member_table where m_number=#{m_number}
+ 	</select>
+ 	
+ 	<update id="update" parameterType="mdto">
+ 		update member_table set m_pw=#{m_pw}, m_phone=#{m_phone} where m_number=#{m_number}
+ 	</update>
 </mapper>

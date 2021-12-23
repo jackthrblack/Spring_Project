@@ -23,4 +23,9 @@ public interface MemberService {
 
 	public MemberDTO mypage(long m_number);
 
+	public void update(MemberDTO m);
+
+	public MemberDTO pwcheck(long m_number);
+
+
 }

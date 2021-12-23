@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Comment">
+	<insert id="insert" parameterType="cdto">
+		insert into comment_table(d_number,m_id, c_id, c_contents, c_star, c_date)
+		values(#{d_number},#{m_id},#{c_id},#{c_contents},#{c_star},now())
+	</insert>
+	
+	<select id="findAll" parameterType="long" resultType="cdto">
+		select * from comment_table where d_number=#{d_number}
+	</select>
+</mapper>

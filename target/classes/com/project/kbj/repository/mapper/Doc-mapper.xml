@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Doctor">
+	<insert id="insert" parameterType="ddto">
+		insert into doctor_table(d_number, d_id, d_pw, d_name, d_date, d_phone, d_email, d_gender)
+		values(#{d_number},#{d_id},#{d_pw},#{d_name},#{d_date},#{d_phone},#{d_email},#{d_gender})
+	</insert>
+	
+	<select id="delete" parameterType="long">
+		delete from doctor_table where d_number=#{d_number}
+	</select>
+	
+	<select id="pagingList1" parameterType="java.util.HashMap" resultType="ddto">
+ 		select * from doctor_table order by d_number desc limit #{start}, #{limit}
+ 	</select>
+ 	
+ 	<select id="count" resultType="int">
+ 		select count(d_number) from doctor_table
+ 	</select>
+ 	
+ 	<select id="login" parameterType="ddto" resultType="ddto">
+ 		select * from doctor_table where d_id=#{d_id} and d_pw=#{d_pw} 
+ 	</select>
+ 	
+ 	<select id="review" parameterType="long" resultType="ddto">
+ 		select * from doctor_table where d_number=#{d_number}
+ 	</select>
+</mapper>

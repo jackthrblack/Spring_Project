@@ -54,4 +54,13 @@ public class MemberRepository {
 		
 	}
 
+	public void update(MemberDTO m) {
+		sql.update("Member.update", m);
+	}
+
+	public MemberDTO pwcheck(long m_number) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("Member.pwcheck", m_number);
+	}
+
 }
