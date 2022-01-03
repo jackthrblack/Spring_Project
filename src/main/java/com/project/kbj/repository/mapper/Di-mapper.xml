@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Disease">
+	<insert id="insert" parameterType="dsdto">
+		insert into disease_table(ds_number,ds_id)
+		values(#{ds_number},#{ds_id})
+	</insert>
+	
+	<select id="check" resultType="dsdto">
+		select * from disease_table 
+	</select>
+</mapper>

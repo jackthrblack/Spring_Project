@@ -6,10 +6,12 @@ import com.project.kbj.dto.CommentDTO;
 
 public interface CommentService {
 
-	void save(CommentDTO comment);
+	public void save(CommentDTO comment);
 
-	List<CommentDTO> findAll(long d_number);
+	public List<CommentDTO> findAll(long d_number);
 
+	public void delete(long c_number);
 
+	public double avg(long d_number);
 
 }

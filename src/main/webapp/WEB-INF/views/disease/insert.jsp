@@ -25,34 +25,25 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="${pageContext.request.contextPath}/resources/css/styles.css"
 	rel="stylesheet" />
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+<title>Login</title>
 </head>
+<body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+				<a class="navbar-brand" href="/">병원이름</a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
 
-<body id="page-top">
-	<!-- Navigation-->
-	<nav
-		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
-		id="mainNav">
-		<div class="container">
-			<a class="navbar-brand" href="/">병원이름</a>
-			<button
-				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
-				type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				Menu <i class="fas fa-bars"></i>
-			</button>
-		</div>
-	</nav>
-
-	<section class="page-section" id="contact">
+                </div>
+            </div>
+        </nav>
+        
+        	<section class="page-section" id="contact">
 		<div class="container">
 			<!-- Contact Section Heading-->
 			<h2
 				class="page-section-heading text-center text-uppercase text-secondary mb-0"
-				style="margin-top: 30px">질병등록</h2>
+				style="margin-top: 30px">Sign In</h2>
 			<!-- Icon Divider-->
 			<div class="divider-custom">
 				<div class="divider-custom-line"></div>
@@ -71,33 +62,43 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-					<form action="insert" method="post"
+					<form action="/disease/insert" method="post"
 						data-sb-form-api-token="API_TOKEN">
-						<!-- Id input-->
+						<!-- ds_id input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" name="ds_id" type="text"> 
-							<label for="id">아이디</label> 
+							<input class="form-control" name="ds_id" id="ds_id" type="text"> 
+							<label for="id">질병</label> 
 						</div>
+						
+						<div class="text-middle">
+						<button class="btn btn-primary btn-xl" id="submitButton"
+							type="submit">등록</button>
+						</div>
+					</form>
 
-						<!-- Password input-->
+					<form action="/symptom/insert" method="post">
+						<!-- ds_symptom input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" name="ds_symptom" type="password"> 
-							<label for="symptom">비밀번호</label>
+							<input class="form-control" name="s_id" id="s_id" type="text"> 
+							<label for="symptom">증상</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input class="form-control" name="ds_id" id="ds_id" type="text"> 
+							<label for="symptom">질병</label>
 						</div>
 
 						<!-- Submit Button-->
 
+						<div class="text-middle">
 						<button class="btn btn-primary btn-xl" id="submitButton"
-							type="submit">Submit</button>
-
+							type="submit">등록</button>
+					</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
-
+	
 	<footer class="footer text-center">
 		<div class="container">
 			<div class="row">
@@ -131,7 +132,7 @@
 			</div>
 		</div>
 	</footer>
-	<div class="copyright py-4 text-center text-white">
+		<div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
         </div>
 </body>

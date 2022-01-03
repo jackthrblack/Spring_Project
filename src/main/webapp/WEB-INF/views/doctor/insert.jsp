@@ -120,7 +120,7 @@
 										<input type="radio" class="btn-check" value="남자" name="d_gender" id="success-outlined" autocomplete="off" checked>
 										<label class="btn btn-outline-success" for="success-outlined">남자</label>
 										
-										<input type="radio" class="btn-check" value="여자" name="d_gender" id="success-outlined2" autocomplete="off" checked>
+										<input type="radio" class="btn-check" value="여자" name="d_gender" id="success-outlined2" autocomplete="off">
 										<label class="btn btn-outline-success" for="success-outlined2">여자</label>			
 								</div>
 							</div>

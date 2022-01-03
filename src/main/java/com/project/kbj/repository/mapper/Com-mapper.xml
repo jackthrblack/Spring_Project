@@ -11,4 +11,12 @@
 	<select id="findAll" parameterType="long" resultType="cdto">
 		select * from comment_table where d_number=#{d_number}
 	</select>
+	
+	<select id="delete" parameterType="long">
+		delete from comment_table where c_number=#{c_number}
+	</select>
+	
+	<select id="avg" parameterType="long" resultType="Double">
+		select IFNULL(AVG(c_star), 0) from comment_table where d_number=#{d_number}
+	</select>
 </mapper>

@@ -17,12 +17,12 @@
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
 	crossorigin="anonymous"></script>
 <!-- Google fonts-->
-<link
+<!-- <link
 	href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css" />
 <link
 	href="${pageContext.request.contextPath}/https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css" />
+	rel="stylesheet" type="text/css" /> -->
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="${pageContext.request.contextPath}/resources/css/styles.css"
 	rel="stylesheet" />
@@ -92,23 +92,29 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-					
+					<c:choose>
+					<c:when test="${sessionScope.loginId != null}">
+                          
+                    	<h2>평점:</h2><h1>${avg}</h1>
+                    	
+                   
 					<div id="comment-writer">
 					<form name="myform" id="myform">
-                                    	<fieldset id="aaa">
+                                    	<fieldset>
                                     		<input type="radio" name="c_star" value="5" id="rate1"><label for="rate1">♥</label>
                                     		<input type="radio" name="c_star" value="4" id="rate2"><label for="rate2">♥</label>
                                     		<input type="radio" name="c_star" value="3" id="rate3"><label for="rate3">♥</label>
                                     		<input type="radio" name="c_star" value="2" id="rate4"><label for="rate4">♥</label>
                                     		<input type="radio" name="c_star" value="1" id="rate5"><label for="rate5">♥</label>
-                                    	</fieldset>
-											<input type="hidden" id="d_number" name="d_number" value="${review.d_number }">
+                                    	</fieldset><br>
+											<input type="hidden" id="d_number" name="d_number" value="${review.d_number}">
 											<input type="text" id="c_id" name="c_id" value="${sessionScope.loginId}" readonly>
 											<textarea type="text" id="c_contents"  name="c_contents" row="15px" placeholder="내용"></textarea>
 											<button id="comment-write-btn">댓글등록</button>
                                     </form>
 					</div>
-					
+					</c:when>
+					</c:choose>
 					<div id="comment-list">
 					<table class="table table-hover">
 						<thead>
@@ -122,12 +128,22 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${commentList}" var="comment">
-							<tr>
-								<th scope="row">${comment.c_number}</th>
+						<c:forEach items="${commentList}" var="comment" varStatus="status">
+							<tr style="text-center">
+								<th scope="row">${status.count}</th>
 								<td>${comment.c_id}</td>
 								<td>${comment.c_contents}</td>
+								<td>♥${comment.c_star}</td>
 								<td>${comment.c_date}</td>
+								<c:choose>
+									<c:when test="${sessionScope.loginId eq 'admin'}">
+										<td><a href="delete?c_number=${comment.c_number}">삭제</a></td>
+									</c:when>
+									
+									<c:when test="${sessionScope.loginId eq comment.c_id}">
+										<td><a href="/comment/delete?c_number=${comment.c_number}&d_number=${comment.d_number}">삭제</a></td>
+									</c:when>
+								</c:choose>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -154,15 +170,18 @@
 
 <script>
 	$("#comment-write-btn").click(function() {
-		/* const writer = document.getElementById('c_id').value;
+		const writer = document.getElementById('c_id').value;
 		const commentContents = document.getElementById('c_contents').value;
 		const doctorNumber = document.getElementById('d_number').value;
-		const star = document.getElementById('aaa').value; */
-		var formData = $("#myform").serialize();
+		const star = $('input:radio[name=c_star]:checked').val();
+		console.log(star);
+		console.log(writer);
+		/* var formData = $("#myform").serialize(); */
 		$.ajax({
 			type : 'post',
 			url : '/comment/insert',
-			data : formData,
+			data : {"c_id":writer, "c_contents": commentContents, "d_number":doctorNumber,"c_star":star},
+			/* data : formData, */
 			dataType : "json",
 			success : function(result) {
 				let output = "<table>";

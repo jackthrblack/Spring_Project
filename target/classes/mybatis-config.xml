@@ -2,11 +2,14 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
 	<typeAliases> 
 		<typeAlias  type="com.project.kbj.dto.MemberDTO" alias="mdto"/>
 		<typeAlias  type="com.project.kbj.dto.DoctorDTO" alias="ddto"/>
-		<typeAlias  type="com.project.kbj.dto.DiseaseDTO" alias="idto"/>
 		<typeAlias  type="com.project.kbj.dto.ReservationDTO" alias="rdto"/>
 		<typeAlias  type="com.project.kbj.dto.CommentDTO" alias="cdto"/>
+		<typeAlias  type="com.project.kbj.dto.DiseaseDTO" alias="dsdto"/>
+		<typeAlias  type="com.project.kbj.dto.SymptomDTO" alias="sdto"/>
+		<typeAlias  type="com.project.kbj.dto.DateTimeDTO" alias="dadto"/>
 	</typeAliases>
 </configuration>

@@ -37,9 +37,18 @@
 		<div class="container">
 			<a class="navbar-brand" href="/">병원이름</a>
 		</div>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ms-auto">
+
+				<li class="nav-item mx-0 mx-lg-1"><a
+					class="nav-link py-3 px-0 px-lg-3 rounded"
+					href="/reservation/rList?m_number=${loginNumber}">회원목록</a></li>
+
+			</ul>
+		</div>
 	</nav>
 
-		<section class="page-section" id="contact">
+	<section class="page-section" id="contact">
 		<div class="container">
 			<!-- Contact Section Heading-->
 			<h2
@@ -63,57 +72,56 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-				
-					<form 
-						data-sb-form-api-token="API_TOKEN">
+
+					<form data-sb-form-api-token="API_TOKEN">
 						<!-- Id input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" value="${mypage.m_id}"type="text" readonly> 
-							<label for="id">아이디</label> 
+							<input class="form-control" value="${mypage.m_id}" type="text"
+								readonly> <label for="id">아이디</label>
 						</div>
 
 						<!-- Password input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" type="text" value="${mypage.m_pw}" readonly> 
-							<label>비밀번호</label>
+							<input class="form-control" type="text" value="${mypage.m_pw}"
+								readonly> <label>비밀번호</label>
 						</div>
-						
+
 						<!-- Name input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" type="text" value="${mypage.m_name}" readonly> 
-							<label>이름</label>
+							<input class="form-control" type="text" value="${mypage.m_name}"
+								readonly> <label>이름</label>
 						</div>
-						
+
 						<!-- Date input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" type="text" value="${mypage.m_date}" readonly> 
-							<label>생년월일</label>
+							<input class="form-control" type="text" value="${mypage.m_date}"
+								readonly> <label>생년월일</label>
 						</div>
-						
+
 						<!-- Phone input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" type="text" value="${mypage.m_phone}" readonly> 
-							<label>핸드폰번호</label>
+							<input class="form-control" type="text" value="${mypage.m_phone}"
+								readonly> <label>핸드폰번호</label>
 						</div>
-						
+
 						<!-- Gender input-->
 						<div class="form-floating mb-3">
-							<input class="form-control" type="text" value="${mypage.m_gender}" readonly> 
-							<label>성별</label>
+							<input class="form-control" type="text"
+								value="${mypage.m_gender}" readonly> <label>성별</label>
 						</div>
-						
+
 
 						<!-- Submit Button-->
-						<a href="/member/pwcheck?m_number=${mypage.m_number}">
-							<input type="button" class="btn btn-primary btn-xl" 
-								 style="float:right" value="수정"></input></a>
+						<a href="/member/pwcheck?m_number=${mypage.m_number}"> <input
+							type="button" class="btn btn-primary btn-xl" style="float: right"
+							value="수정"></input></a>
 					</form>
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
-	
+
 
 	<footer class="footer text-center">
 		<div class="container">

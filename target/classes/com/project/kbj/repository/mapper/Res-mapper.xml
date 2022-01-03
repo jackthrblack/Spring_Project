@@ -4,7 +4,29 @@
 
 <mapper namespace="Reservation">
 	<insert id="insert" parameterType="rdto">
-		insert into reservation_table(d_number, d_id, d_pw, d_name, d_date, d_email, d_gender)
-		values(#{d_number},#{d_id},#{d_pw},#{d_name},#{d_date},#{d_email},#{d_gender})
+		insert into
+		reservation_table(r_number,m_number,d_number,r_name,r_dsName, r_symptom, r_date, r_time)
+		values(#{r_number},#{m_number},#{d_number},#{r_name},#{r_dsName},#{r_symptom},#{r_date},#{r_time})
 	</insert>
+
+	<select id="check" parameterType="Date" resultType="String">
+		select r_date from reservation_table where r_date=#{r_date}
+	</select>
+	
+	<select id="chekc2" parameterType="String" resultType="String">
+		select r_time from reservation_table where r_time=#{r_time}
+	</select>
+ 	
+ 	<select id="check3" parameterType="long" resultType="long">
+ 		select d_number from reservation_table where d_number=#{d_number}
+ 	</select>
+ 	
+	<select id="rList" parameterType="long" resultType="rdto">
+		select * from reservation_table where m_number=#{m_number}
+	</select> 	
+
+	<select id="delete" parameterType="long">
+		delete from reservation_table where r_number=#{r_number}
+	</select>
+ 
 </mapper>

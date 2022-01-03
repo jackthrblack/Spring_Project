@@ -84,4 +84,17 @@ public class DoctorServiceImple implements DoctorService{
 		return d;
 	}
 
+	@Override
+	public List<DoctorDTO> doctor() {
+		List<DoctorDTO> d = dr.doctor();
+		return d;
+	}
+
+	/*
+	 * @Override public long d_num(String r_doctor) { 
+	 * return dr.d_num(r_doctor); 
+	 * }
+	 */
+
+
 }

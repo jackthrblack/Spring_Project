@@ -45,4 +45,15 @@ public class DoctorRepository {
 		return sql.selectOne("Doctor.review",d_number);
 	}
 
+	public List<DoctorDTO> doctor() {
+		// TODO Auto-generated method stub
+		return sql.selectList("Doctor.doctor");
+	}
+
+	/*
+	 * public long d_num(String r_doctor) { return sql.selectOne("Doctor.d_num",
+	 * r_doctor); }
+	 */
+
+
 }

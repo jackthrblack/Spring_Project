@@ -63,4 +63,9 @@ public class MemberRepository {
 		return sql.selectOne("Member.pwcheck", m_number);
 	}
 
+	public MemberDTO re_name(long m_number) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("Member.reservation", m_number);
+	}
+
 }

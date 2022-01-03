@@ -4,8 +4,8 @@
 
 <mapper namespace="Doctor">
 	<insert id="insert" parameterType="ddto">
-		insert into doctor_table(d_number, d_id, d_pw, d_name, d_date, d_phone, d_email, d_gender)
-		values(#{d_number},#{d_id},#{d_pw},#{d_name},#{d_date},#{d_phone},#{d_email},#{d_gender})
+		insert into doctor_table(d_number,d_id, d_pw, d_name, d_date, d_phone, d_email, d_gender)
+		values(#{d_number}, #{d_id},#{d_pw},#{d_name},#{d_date},#{d_phone},#{d_email},#{d_gender})
 	</insert>
 	
 	<select id="delete" parameterType="long">
@@ -27,4 +27,12 @@
  	<select id="review" parameterType="long" resultType="ddto">
  		select * from doctor_table where d_number=#{d_number}
  	</select>
+ 	
+ 	<select id="doctor" resultType="ddto">
+ 		select * from doctor_table
+ 	</select>
+ 	
+ 	<!-- <select id="d_num" resultType="String" parameterType="long">
+ 		select d_number from doctor_table where d_name = #{r_doctor}
+ 	</select> -->
 </mapper>

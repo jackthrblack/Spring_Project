@@ -34,7 +34,7 @@
 
 		$.ajax({
 			type : 'post',
-			url : 'idDp',
+			url : '/member/idDp',
 			data : {
 				'm_id' : id
 			},
@@ -98,7 +98,7 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-					<form action="insert" method="post"
+					<form action="/member/insert" method="post"
 						data-sb-form-api-token="API_TOKEN">
 						<!-- Id input-->
 						<div class="form-floating mb-3">
@@ -142,10 +142,10 @@
 										<input type="radio" class="btn-check" value="남자" name="m_gender" id="success-outlined" autocomplete="off" checked>
 										<label class="btn btn-outline-success" for="success-outlined">남자</label>
 										
-										<input type="radio" class="btn-check" value="여자" name="m_gender" id="success-outlined2" autocomplete="off" checked>
+										<input type="radio" class="btn-check" value="여자" name="m_gender" id="success-outlined2" autocomplete="off">
 										<label class="btn btn-outline-success" for="success-outlined2">여자</label>
 										
-										<input type="radio" class="btn-check" value="x" name="m_gender" id="success-outlined3" autocomplete="off" checked>
+										<input type="radio" class="btn-check" value="x" name="m_gender" id="success-outlined3" autocomplete="off">
 										<label class="btn btn-outline-success" for="success-outlined3">선택안함</label>
 									
 								</div>

@@ -24,5 +24,15 @@ public class CommentRepository {
 		return sql.selectList("Comment.findAll", d_number);
 	}
 
+	public void delete(long c_number) {
+		// TODO Auto-generated method stub
+		sql.selectOne("Comment.delete", c_number);
+	}
+
+	public double avg(long d_number) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("Comment.avg", d_number);
+	}
+
 
 }

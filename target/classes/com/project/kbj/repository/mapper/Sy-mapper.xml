@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Symptom">
+	<insert id="insert" parameterType="sdto">
+		insert into symptom_table(s_number,s_id, ds_id)
+		values(#{s_number},#{s_id},#{ds_id})
+	</insert>
+	
+	<select id="sym" parameterType="String" resultType="sdto">
+		select * from symptom_table where ds_id=#{ds_id}
+	</select>
+</mapper>

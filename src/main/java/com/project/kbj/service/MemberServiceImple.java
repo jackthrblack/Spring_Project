@@ -102,6 +102,11 @@ public class MemberServiceImple implements MemberService {
 		MemberDTO m = mr.pwcheck(m_number);
 		return m;
 	}
+	@Override
+	public MemberDTO re_name(long m_number) {
+		MemberDTO m = mr.re_name(m_number);
+		return m;
+	}
 	
 
 }

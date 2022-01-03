@@ -27,5 +27,7 @@ public interface MemberService {
 
 	public MemberDTO pwcheck(long m_number);
 
+	public MemberDTO re_name(long m_number);
+
 
 }

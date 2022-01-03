@@ -20,5 +20,11 @@ public interface DoctorService {
 
 	public DoctorDTO review(long d_number);
 
+	public List<DoctorDTO> doctor();
+
+
+	/* public long d_num(String r_doctor); */
+
+
 
 }

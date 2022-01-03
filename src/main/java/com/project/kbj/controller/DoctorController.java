@@ -78,6 +78,8 @@ public class DoctorController {
 		List<CommentDTO> commentList=cs.findAll(d_number);
 		model.addAttribute("commentList", commentList);
 		model.addAttribute("review", d);
+		double avg = cs.avg(d_number);
+		model.addAttribute("avg",avg);
 		return "doctor/review";
 	}
 }
